@@ -97,7 +97,21 @@ This Flask-based API allows you to convert various file formats (HTML, Word, Exc
 
 
 
+**Example Response**: Returns a PDF file with the image embedded.
 
+## Dependencies
+
+The `requirements.txt` file includes the following key dependencies:
+- **Flask**: Web framework for building the API
+- **WeasyPrint**: HTML to PDF conversion
+- **pdfkit**: General PDF generation
+- **Pillow**: Image processing for JPG to PDF
+- **openpyxl**: XLSX processing
+- **python-pptx**: PowerPoint processing
+
+## Additional Notes
+
+This app includes necessary system libraries like **LibreOffice** and **Wkhtmltopdf** for handling file conversions. If you encounter issues with conversions, verify that these tools are installed or review the Docker setup instructions.
 
 
    
