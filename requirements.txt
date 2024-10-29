@@ -1,0 +1,10 @@
+Flask==2.0.2
+openpyxl==3.0.9
+weasyprint==60.1
+python-pptx==0.6.23
+xlsx2html==0.6.1
+imgkit==1.2.2
+Pillow>=9.1.0
+pdfkit==1.0.0
+Werkzeug==2.0.2
+requests

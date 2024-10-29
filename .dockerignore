@@ -1,0 +1,5 @@
+# Ignore Python virtual environment
+.venv/
+
+# Ignore Python cache directory within the conversions folder
+conversions/__pycache__/

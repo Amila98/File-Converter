@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Converter</title>
+</head>
+<body>
+    <h1>PDF Converter</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label for="file">Choose file:</label>
+        <input type="file" id="file" name="file" required>
+        <br>
+        <label for="url">Or enter URL:</label>
+        <input type="url" id="url" name="url">
+        <br>
+        <label for="convertTo">Convert to:</label>
+        <select id="convertTo" name="convertTo">
+            <option value="wordtopdf">Word to PDF</option>
+            <option value="ppttopdf">PowerPoint to PDF</option>
+            <option value="htmltopdf">HTML to PDF</option>
+            <option value="jpgtopdf">Image to PDF</option>
+            <option value="exceltopdf">Excel to PDF</option>
+        </select>
+        <button type="button" onclick="uploadFile()">Upload and Convert</button>
+    </form>
+    <div id="result"></div>
+    
+    <script>
+        async function uploadFile() {
+            const form = document.getElementById('uploadForm');
+            const formData = new FormData(form);
+            const convertTo = document.getElementById('convertTo').value;
+            try {
+                const response = await fetch(`/${convertTo}`, {
+                    method: 'POST',
+                    body: formData
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'converted_file.pdf';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.getElementById('result').innerText = 'File converted successfully!';
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'File conversion failed.';
+            }
+        }
+    </script>
+</body>
+</html>
