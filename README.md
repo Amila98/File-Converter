@@ -49,3 +49,56 @@ This Flask-based API allows you to convert various file formats (HTML, Word, Exc
 
    The app will now be accessible on `http://localhost:5000`.
 
+## API Endpoints
+
+### 1. Convert HTML to PDF
+
+- **Endpoint**: `/htmltopdf`
+- **Method**: POST
+- **Form Data**:
+  - `file`: HTML file (optional)
+  - `url`: URL to HTML page (optional)
+
+**Example Response**: Returns a PDF file converted from the HTML content or URL.
+
+### 2. Convert Word to PDF
+
+- **Endpoint**: `/wordtopdf`
+- **Method**: POST
+- **Form Data**:
+  - `file`: DOCX file
+
+**Example Response**: Returns a PDF file converted from the DOCX content.
+
+### 3. Convert Excel to PDF
+
+- **Endpoint**: `/exceltopdf`
+- **Method**: POST
+- **Form Data**:
+  - `file`: XLSX file
+
+**Example Response**: Returns a PDF file converted from the XLSX content.
+
+### 4. Convert PowerPoint to PDF
+
+- **Endpoint**: `/ppttopdf`
+- **Method**: POST
+- **Form Data**:
+  - `file`: PPTX file
+
+**Example Response**: Returns a PDF file converted from the PPTX content.
+
+### 5. Convert JPG to PDF
+
+- **Endpoint**: `/jpgtopdf`
+- **Method**: POST
+- **Form Data**:
+  - `file`: JPG file
+
+
+
+
+
+
+   
+
